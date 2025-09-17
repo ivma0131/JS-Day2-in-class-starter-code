@@ -24,8 +24,18 @@
     </header>
     <section id="1">
         <h3>Part 1 - <span class="head-text-dark">var vs let/const</span></h3>
-        <p><b>Instructions: </b>Open the browser inspector and review the JS code for part 1.  
+          <p><b>Instructions: </b>Open the browser inspector and review the JS code for part 1.  
           Reviewing the output, explain how var scopes differently than let and why we'd use <b>let</b> over <b>var</b>.</p>
+          <p>Explanation: The scope of var variables is a function-scope meaning that if declared inside a function it can only be accessed within 
+          the function and not outside of it (globally). Additionally, it also means that anytime it is declared or redeclared anywhere inside
+          a function, it ignores block-scope and overwrites any previous declaration. So if the var is declared inside the function then later 
+          redeclared inside a block statement such as an if statement inside that function, then it overwrites the variable inside the function.
+          Var declaration is useful when you want a variable to be available across an entire function, even in nested blocks.
+          </p>
+          <p>The scope of a let variable is a block-scope meaning that any let variables declared exist only inside the nearest set
+          of {}. So if the let variable was declared in a function and then later declared inside a block in that function, then the value of the outer let
+          isn't overwritten by the inner block variable it only stays in there. Let is useful when you want temporary variables that won't leak outside their block.</p>    
+          <p>The scope of a const variable is the same block scope rules as let but once it is assigned it cannot be reassinged. Const is useful when you want to ensure a variable never changes reference.</p>
     </section>
  
     <section id="2">
@@ -49,6 +59,11 @@
     <section id="5">
         <h3>Part 5 - <span class="head-text-dark">Array Methods</span></h3>
         <p><b>Instructions: </b>Update JS Part 5 code to use Array map() method to loop through results.  Also tag on a filter() method to only pull fruits that start with "b".  You can use LLM for this but make sure you provide context of 1) your current code, 2) your goal, and 3) clear expectations in terms of output detail.</p>
+        <p>Context: we start with an array of fruits that uses a for-loop to add every fruit into the DOM</p>
+        <p>Goal: the goal is to update the code to do the same function with modern array methods using
+        filter and map</p>
+        <p>Expectations: only fruits that start with letter b should appear when the button is clicked and
+    clear text button should clear text</p>
         <h4 id="result5"></h4>
         <button onclick="printFruit()">Print Fruit array</button>
         <button onclick="clearText()">Clear text</button>
