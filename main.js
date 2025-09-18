@@ -87,7 +87,7 @@ function Greetings(name) {
     return `Hello ${name}!`;
 };
 
-console.log(Greetings("Clint"));
+console.log(Greetings(myName));
 
 //Make a copy of the above function and rename it GreetingsArrow() and then convert function to an arrow function here
  
@@ -97,32 +97,16 @@ console.log(GreetingsArrow());
 
 //////// PART 5 - Array methods////////
 function printFruit() {
-  /*
-    Context: we start with a code of an array of fruits that uses a for-loop to add every fruit into the DOM
-    Goal: the goal is to update the code to do the same function with modern array methods using
-    filter() and map().
-    Expectations: only fruits that start with letter b should appear when the button is clicked and
-    clear text button should clear text
-    */
   let resultElement = document.getElementById("result5");
   resultElement.textContent = "";
 
-  // use map to turn each fruit string into a <p> element
-  const output = fruits.map((fruit) => {
-    const p = document.createElement("p");
-    p.textContent = fruit;
-    return p;
-  });  
-  
-  // filter only fruits that start with "b"
-  const bFruits = output.filter((p) => {
-    return p.textContent.toLowerCase().startsWith("b");
-  });
-
-  // append all <p> tags to the page
-  bFruits.forEach((p) => {
-    resultElement.appendChild(p);
-  });
+  fruits
+    .filter(fruit => fruit.toLowerCase().startsWith('b'))
+    .map(fruit => {
+      const p = document.createElement("p");
+      p.textContent = fruit;
+      resultElement.appendChild(p);
+    });
 }
  
  
