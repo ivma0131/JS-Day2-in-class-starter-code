@@ -100,13 +100,13 @@ function printFruit() {
   let resultElement = document.getElementById("result5");
   resultElement.textContent = "";
 
-  fruits
-    .filter(fruit => fruit.toLowerCase().startsWith('b'))
-    .map(fruit => {
-      const p = document.createElement("p");
-      p.textContent = fruit;
-      resultElement.appendChild(p);
-    });
+  const bFruits = fruits.filter(fruit => fruit.toLowerCase().startsWith('b'));
+  
+  bFruits.map(fruit => {
+    const p = document.createElement("p");
+    p.textContent = fruit;
+    resultElement.appendChild(p);
+  });
 }
  
  
